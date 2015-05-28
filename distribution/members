@@ -1,0 +1,59 @@
+Server
+	Liste Applications dispo
+	Liste Computers
+	Liste Profiles
+
+	Parameters(Hashmap)
+ 
+	scheduler
+Profile
+	name
+	set<Application> Applications
+
+
+Application
+	String name
+	String version
+	
+	set<Commands> installCommands 
+	set<Commands> updateCommands
+	set<Commands> UninstallCommands
+
+	set<Application> ApplicationDependencies
+	
+	set<Shortcut> Shortcuts
+	set<Registry> regchanges
+	set<FileCopy> fileCopys
+	Boolean isDelprofNeeded
+	HashMap<String, Parameter> parameters
+
+	URI sourceFiles
+
+
+Computers
+	String name
+	set<Profile> profiles
+	set<Application> applications
+	set<Application> getResultingApplications
+	HashMap<String, Parameter> parameters
+	HashMap<String, Parameter> getResultingParameters
+
+------------------------------------------------
+client flow
+myServerState = server.getComputer(myself)
+thingsToDo = CompareMyListTo(myServerState.getResultingApplicationsList)
+
+
+thingsToDo.NewApplication
+thingsToDo.UpdatedApplication
+thingsToDo.RemovedApplication
+thingsToDo.ReconfiguredApplication
+thingsToDo.ChangedParameter
+
+
+
+
+
+
+
+

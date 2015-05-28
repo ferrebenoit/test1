@@ -1,0 +1,45 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-release" }
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$project.ext.springBootVersion")
+    }
+}
+
+apply plugin: 'spring-boot' 
+description = 'Distribution common'
+
+jar {
+    baseName = 'distribution-domainmodel'
+    version = '0.0.1-SNAPSHOT'
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile("com.fasterxml.jackson.core:jackson-databind")
+    compile("javax.persistence:persistence-api:1.0")
+    	//javax.persistence
+	//compile("org.springframework.boot:spring-boot-starter-data-jpa:$project.ext.springBootVersion")
+
+	//compile("org.springframework.boot:spring-boot-starter-web:$project.ext.springBootVersion")
+	
+	
+	//compile("org.springframework.boot:spring-boot-starter-data-rest:$project.ext.springBootVersion")
+	//compile project(":distribution-repository-jdbc")
+	//compile project(":distribution-controller")
+//    testCompile("org.springframework.boot:spring-boot-starter-test:$project.ext.springBootVersion")
+}
+
+//eclipse {
+//    classpath {
+//         containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+//         containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+//    }
+//}

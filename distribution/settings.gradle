@@ -1,0 +1,1 @@
+include 'distribution-server', 'distribution-client', 'distribution-domainmodel', 'distribution-repository-jdbc', 'distribution-controller', 'distribution-web-thymeleaf', 'distribution-rest-repository', 'distribution-jpa-repository', 'distribution-utils'

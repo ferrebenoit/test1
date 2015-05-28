@@ -1,0 +1,39 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-release" }
+        mavenLocal()
+        mavenCentral()
+    }
+    
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$project.ext.springBootVersion")
+    }
+}
+
+apply plugin: 'spring-boot' 
+description = 'Distribution Jpa Repository'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://repo.spring.io/libs-release" }
+    maven { url "https://repository.jboss.org/nexus/content/repositories/releases" }
+}
+
+jar {
+    baseName = 'distribution-jpa-repository'
+    version = '0.0.1-SNAPSHOT'
+}
+
+dependencies {
+//    compile("org.springframework.boot:spring-boot-starter:$project.ext.springBootVersion")
+//    compile("org.springframework:spring-web:$project.ext.springBootVersion")
+//    compile("com.fasterxml.jackson.core:jackson-databind")	compile("org.springframework.boot:spring-boot-starter-data-jpa:$project.ext.springBootVersion")
+	compile("org.springframework.boot:spring-boot-starter-data-jpa:$project.ext.springBootVersion")
+	compile("org.springframework.boot:spring-boot-starter-data-rest:$project.ext.springBootVersion")
+
+    compile project(":distribution-domainmodel")
+    compile project(":distribution-repository-jdbc")
+    
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}

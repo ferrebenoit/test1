@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"/>
+    
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p th:text="'Hello standard view! refreshed'" />
+    <p th:text="${allApplications.isEmpty()}" /> 
+    
+    <table>
+    <thead>
+      <tr>
+        <th th:text="Name">Name</th>
+        <th th:text="Version">Version</th>
+      </tr>
+    </thead>
+    <tbody th:remove="all-but-first">
+      <tr th:each="app : ${allApplications}" th:class="${appStat.odd}? 'odd'">
+        <td th:text="${app.Name}">Firefox</td>
+        <td th:text="${app.version}">2.3.6</td>
+      </tr>
+      <tr class="odd">
+        <td>Libre Office</td>
+        <td>4.3.6</td>
+      </tr>
+      <tr>
+        <td>Thunderbird</td>
+        <td>4.3.6</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div th:include="footer :: copy"></div>
+  
+</body>
+</html>

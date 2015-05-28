@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-release" }
+        mavenLocal()
+        mavenCentral()
+    }
+    
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$project.ext.springBootVersion")
+    }
+}
+
+apply plugin: 'spring-boot' 
+description = 'Distribution Client'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://repo.spring.io/libs-release" }
+    maven { url "https://repository.jboss.org/nexus/content/repositories/releases" }
+}
+
+jar {
+    baseName = 'distribution-client'
+    version = '0.0.1-SNAPSHOT'
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter:$project.ext.springBootVersion")
+    //compile("org.springframework:spring-web:$project.ext.springBootVersion")
+    //compile("com.fasterxml.jackson.core:jackson-databind")
+    compile project(":distribution-rest-repository")
+    
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+//eclipse {
+//    classpath {
+//         containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+//         containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+//    }
+//}

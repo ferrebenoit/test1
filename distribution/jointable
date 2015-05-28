@@ -1,0 +1,6 @@
+computer.getinstallations(i).getApplication
+computer.getinstallations(i).installdate
+computer.getinstallations(i).state (installed,programmed )
+computer.getinstallations(i).recur (at,daily,hourly...)
+
+application.getinstallations(i).getComputer
